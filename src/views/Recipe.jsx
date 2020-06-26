@@ -9,9 +9,7 @@ function Recipe(props){
     const recipe = props.location.recipeProps
     console.log(props.location.recipeProps)  
 
-    if (performance.navigation.type == 1) {
-        alert( `This Component loads its data dynamically from the links in the main page, please go back to root "/"` );
-      }
+
     
     return(
         <div className="container">
