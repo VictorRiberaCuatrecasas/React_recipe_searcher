@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Home from "./views/Home";
+import Recipe from "./views/Recipe";
+import Notfound from "./views/404";
+import Footer from "./components/Footer"
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+		<Router>
+			<div className="content">
+				{/* nav */}
+				<Switch>
+					<Route path="/" exact component={Home}></Route>
+					<Route path="/recipes/:recipe" component={Recipe}></Route>
+					<Route component={Notfound} />
+				</Switch>	
+				<Footer />
+			</div>
+		</Router>
     </div>
   );
 }
 
 export default App;
+
